@@ -1,0 +1,49 @@
+
+domains:
+  - local:
+      name: local.example.com
+  - test:
+      name: test.example.com
+
+networks:
+  - lan1:
+      cidr: 192.168.10.0/24
+      default-domain: local
+  - vlan20:
+      cidr: 192.168.20.0/24
+  - vlan30:
+      cidr: 192.168.30.0/24
+
+interfaces:
+  enp2:
+    mac: 00:00:00:00:00:02
+    on:
+      - vlan30:
+          - addr: dynamic
+          - named: true
+
+hosts:
+  - sun:
+      interfaces:
+        - enp1s0:
+            mac: 00:00:00:00:00:01
+            on:
+              - lan1:
+                  addr: .1
+                  named: true
+                  alias:
+                    - gateway
+                    - ns1
+              - lan2:
+                  addr: .1
+                  named: true
+        - enp2:
+  - venus:
+      interfaces:
+        - _unnamed_0000000_000003:
+            mac: 00:00:00:00:00:03
+            on:
+              - lan1:
+                  addr: dynamic
+                  named: true
+
