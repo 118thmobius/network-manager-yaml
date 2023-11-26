@@ -1,1 +1,1 @@
-# subnet-manager-yaml
+# network-manager-yaml
