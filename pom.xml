@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.mobiusone</groupId>
-  <artifactId>network-manager-yaml</artifactId>
+  <artifactId>subnet-manager-yaml</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>network-manager-yaml</name>
-  <url>https://mobiusone.org/network-manager</url>
+  <name>subnet-manager-yaml</name>
+  <url>https://mobiusone.org/subnet-manager</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

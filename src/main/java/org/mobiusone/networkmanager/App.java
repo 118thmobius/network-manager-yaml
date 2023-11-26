@@ -1,9 +1,13 @@
 package org.mobiusone.networkmanager;
 
 import org.mobiusone.networkmanager.entity.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.mobiusone.networkmanager.entity.layer2.MacAddr;
+import org.mobiusone.networkmanager.entity.layer2.NetworkInterface;
+import org.mobiusone.networkmanager.entity.layer3.IPv4Addr;
+import org.mobiusone.networkmanager.entity.layer3.IPv4Subnet;
+import org.mobiusone.networkmanager.entity.layer3.IPv6Addr;
+import org.mobiusone.networkmanager.entity.layer3.Subnet;
+import org.mobiusone.networkmanager.entity.layer7.Domain;
 
 /**
  * Hello world!
@@ -13,38 +17,23 @@ public class App
 {
     public static void main( String[] args )
     {
-        List<Domain> domains = new ArrayList<>();
-        domains.add(new Domain("local.example.com"));
 
-        List<Network> networks = new ArrayList<>();
+        Config config = new Config();
+
+        config.addDomain(new Domain("local.example.com"));
+
         IPv4Addr networkAddr = new IPv4Addr(192,168,1,0,24);
-        System.out.println(networkAddr.isNetworkAddress() ? "NETWORK ADDR OK":"NOT NETWORK ADDR");
-        Network network = new Network("local",networkAddr);
-        networks.add(network);
+        IPv4Subnet subnet = new IPv4Subnet("local",networkAddr);
+        config.addSubnets(subnet);
 
-        List<NetworkInterface> interfaces = new ArrayList<>();
         NetworkInterface networkInterface = new NetworkInterface("enp1",new MacAddr());
-        networkInterface.connectIPv4(network,new IPv4Addr(192,168,1,10,24));
-        interfaces.add(networkInterface);
+        networkInterface.connectIPv4(subnet,new IPv4Addr(192,168,1,10,24));
+        config.addNetworkInterface(networkInterface);
 
-        List<Host> hosts = new ArrayList<>();
         Host host = new Host("sun");
         host.addInterface(networkInterface);
-        hosts.add(host);
+        config.addHost(host);
 
-        networks.stream().forEach(network1 -> {
-            System.out.println("Netowork:"+ network1.getName()+"("+ network1.getAddr()+")");
-            network1.getConnections().stream().forEach(
-                    connection -> {
-                        System.out.println("Connected NIC:"+connection.getNetworkInterface().getName());
-                        connection.getNetworkInterface().getIPv4Connections().forEach(iPv4Connection -> System.out.println(iPv4Connection.getAddr()));
-                        if (connection.getNetworkInterface().getHost() == null) System.out.println("Not installed.");
-                        else {
-                            Host h = connection.getNetworkInterface().getHost();
-                            System.out.println("Host "+ h.getName());
-                        }
-                    }
-            );
-        });
+        config.print();
     }
 }

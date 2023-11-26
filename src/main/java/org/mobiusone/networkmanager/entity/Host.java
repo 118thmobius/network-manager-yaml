@@ -1,5 +1,7 @@
 package org.mobiusone.networkmanager.entity;
 
+import org.mobiusone.networkmanager.entity.layer2.NetworkInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 

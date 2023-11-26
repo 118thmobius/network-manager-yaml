@@ -1,4 +1,4 @@
-package org.mobiusone.networkmanager.entity;
+package org.mobiusone.networkmanager.entity.layer2;
 
 public class MacAddr {
     private String addr;

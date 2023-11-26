@@ -1,8 +1,6 @@
-package org.mobiusone.networkmanager.entity;
+package org.mobiusone.networkmanager.entity.layer3;
 
-import java.text.Format;
-
-public class IPv4Addr {
+public class IPv4Addr implements L3Addr {
     private int addr;
     private int prefixLength;
 
@@ -14,6 +12,11 @@ public class IPv4Addr {
         if (fourth < 0 || 255 < fourth) throw new IllegalArgumentException(String.format(ERR_INVALID_OCTET,"fourth",fourth));
         this.addr = (first<<24)|(second<<16)|(third<<8)|(fourth);
         this.prefixLength = prefixLength;
+    }
+
+    @Override
+    public Type getType() {
+        return Type.IPv4;
     }
 
     public String getAddressString(){
@@ -34,6 +37,10 @@ public class IPv4Addr {
     }
 
     public static class Range{
+
+    }
+
+    public static class Util{
 
     }
 }
