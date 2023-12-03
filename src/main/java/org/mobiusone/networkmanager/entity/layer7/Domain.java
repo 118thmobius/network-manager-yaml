@@ -1,9 +1,11 @@
 package org.mobiusone.networkmanager.entity.layer7;
 
+import org.mobiusone.networkmanager.entity.annotation.Entity;
 import org.mobiusone.networkmanager.entity.layer3.IPv4Addr;
 
 import java.util.List;
 
+@Entity(layer = 7)
 public class Domain {
     private String name;
     private List<Record<?>> records;

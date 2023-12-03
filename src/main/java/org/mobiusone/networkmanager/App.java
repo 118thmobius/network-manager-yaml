@@ -1,12 +1,11 @@
 package org.mobiusone.networkmanager;
 
-import org.mobiusone.networkmanager.entity.*;
-import org.mobiusone.networkmanager.entity.layer2.MacAddr;
-import org.mobiusone.networkmanager.entity.layer2.NetworkInterface;
+import org.mobiusone.networkmanager.entity.Config;
+import org.mobiusone.networkmanager.entity.Host;
+import org.mobiusone.networkmanager.entity.util.layer2.EthernetNetworkInterface;
+import org.mobiusone.networkmanager.entity.util.layer2.MacAddr;
 import org.mobiusone.networkmanager.entity.layer3.IPv4Addr;
 import org.mobiusone.networkmanager.entity.layer3.IPv4Subnet;
-import org.mobiusone.networkmanager.entity.layer3.IPv6Addr;
-import org.mobiusone.networkmanager.entity.layer3.Subnet;
 import org.mobiusone.networkmanager.entity.layer7.Domain;
 
 /**
@@ -26,8 +25,9 @@ public class App
         IPv4Subnet subnet = new IPv4Subnet("local",networkAddr);
         config.addSubnets(subnet);
 
-        NetworkInterface networkInterface = new NetworkInterface("enp1",new MacAddr());
-        networkInterface.connectIPv4(subnet,new IPv4Addr(192,168,1,10,24));
+        IPv4Addr addr = new IPv4Addr(192,168,1,10,24);
+        EthernetNetworkInterface networkInterface = new EthernetNetworkInterface("enp1",new MacAddr(0L));
+        EthernetNetworkInterface.iPv4ConnectionManager.connect(networkInterface,subnet,addr);
         config.addNetworkInterface(networkInterface);
 
         Host host = new Host("sun");

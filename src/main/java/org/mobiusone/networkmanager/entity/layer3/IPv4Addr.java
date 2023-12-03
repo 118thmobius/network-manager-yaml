@@ -1,6 +1,9 @@
 package org.mobiusone.networkmanager.entity.layer3;
 
-public class IPv4Addr implements L3Addr {
+import org.mobiusone.networkmanager.entity.annotation.Entity;
+
+@Entity(layer = 3)
+public class IPv4Addr implements NetworkAddr {
     private int addr;
     private int prefixLength;
 
@@ -14,12 +17,13 @@ public class IPv4Addr implements L3Addr {
         this.prefixLength = prefixLength;
     }
 
-    @Override
-    public Type getType() {
-        return Type.IPv4;
+    private IPv4Addr(int addr, int prefixLength) {
+        this.addr = addr;
+        this.prefixLength = prefixLength;
     }
 
-    public String getAddressString(){
+    @Override
+    public String toAddrBodyString() {
         int first = (addr>>24) & 255;
         int second = (addr>>16) & 255;
         int third = (addr>>8) & 255;
@@ -33,7 +37,12 @@ public class IPv4Addr implements L3Addr {
 
     @Override
     public String toString() {
-        return String.format("%s/%d",getAddressString(),prefixLength);
+        return String.format("%s/%d",toAddrBodyString(),prefixLength);
+    }
+
+    @Override
+    protected Object clone() {
+        return new IPv4Addr(addr,prefixLength);
     }
 
     public static class Range{

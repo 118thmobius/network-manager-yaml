@@ -1,27 +1,27 @@
 package org.mobiusone.networkmanager.entity.layer3;
 
-import org.mobiusone.networkmanager.entity.layer2.NetworkInterface;
-import org.mobiusone.networkmanager.entity.layer3.IPv4Addr;
-import org.mobiusone.networkmanager.entity.layer3.L3Addr;
+import org.mobiusone.networkmanager.entity.layer2.Connection;
+import org.mobiusone.networkmanager.entity.layer2.DataLinkAddr;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Subnetを表すエンティティ。
  */
-public abstract class Subnet<T extends L3Addr> {
+public abstract class Subnet<N extends NetworkAddr> {
     private String name;
-    private T addr;
-    private List<NetworkInterface.Connection<T>> connections;
+    private N addr;
+    private List<Connection<? extends DataLinkAddr,N>> connections;
 
-    public Subnet(String name,T addr) {
+    public Subnet(String name, N addr) {
         this.name = name;
         this.addr = addr;
         connections = new ArrayList<>();
     }
 
-    public void addConnection(NetworkInterface.Connection<T> connection){
+    public void connect(Connection<? extends DataLinkAddr,N> connection){
         connections.add(connection);
     }
 
@@ -29,11 +29,15 @@ public abstract class Subnet<T extends L3Addr> {
         return name;
     }
 
-    public T getAddr(){
+    public N getAddr(){
         return addr;
     };
 
-    public List<NetworkInterface.Connection<T>> getConnections() {
+    public List<Connection<? extends DataLinkAddr,N>> getConnections() {
         return connections;
+    }
+
+    public <D extends DataLinkAddr> List<Connection<D,N>> getConnectionsByL2Type(Class<D> clazz) {
+        return connections.stream().filter(c -> clazz.isInstance(c.getNetworkInterface().getL2Addr())).map(c -> (Connection<D,N>) c).collect(Collectors.toList());
     }
 }
