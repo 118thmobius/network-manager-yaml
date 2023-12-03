@@ -1,6 +1,7 @@
-package org.mobiusone.networkmanager.entity.layer3;
+package org.mobiusone.networkmanager.tcpip.entity.layer3;
 
-import org.mobiusone.networkmanager.entity.annotation.Entity;
+import org.mobiusone.networkmanager.core.entity.annotation.Entity;
+import org.mobiusone.networkmanager.core.entity.layer3.NetworkAddr;
 
 @Entity(layer = 3)
 public class IPv4Addr implements NetworkAddr {

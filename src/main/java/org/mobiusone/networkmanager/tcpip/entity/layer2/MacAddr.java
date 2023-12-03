@@ -1,7 +1,7 @@
-package org.mobiusone.networkmanager.entity.util.layer2;
+package org.mobiusone.networkmanager.tcpip.entity.layer2;
 
-import org.mobiusone.networkmanager.entity.annotation.Entity;
-import org.mobiusone.networkmanager.entity.layer2.DataLinkAddr;
+import org.mobiusone.networkmanager.core.entity.annotation.Entity;
+import org.mobiusone.networkmanager.core.entity.layer2.DataLinkAddr;
 
 @Entity(layer = 2)
 public class MacAddr implements DataLinkAddr {

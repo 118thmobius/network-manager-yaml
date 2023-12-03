@@ -1,12 +1,12 @@
 package org.mobiusone.networkmanager;
 
-import org.mobiusone.networkmanager.entity.Config;
-import org.mobiusone.networkmanager.entity.Host;
-import org.mobiusone.networkmanager.entity.util.layer2.EthernetNetworkInterface;
-import org.mobiusone.networkmanager.entity.util.layer2.MacAddr;
-import org.mobiusone.networkmanager.entity.layer3.IPv4Addr;
-import org.mobiusone.networkmanager.entity.layer3.IPv4Subnet;
-import org.mobiusone.networkmanager.entity.layer7.Domain;
+import org.mobiusone.networkmanager.core.entity.Config;
+import org.mobiusone.networkmanager.core.entity.Host;
+import org.mobiusone.networkmanager.tcpip.entity.layer2.EthernetNetworkInterface;
+import org.mobiusone.networkmanager.tcpip.entity.layer2.MacAddr;
+import org.mobiusone.networkmanager.tcpip.entity.layer3.IPv4Addr;
+import org.mobiusone.networkmanager.tcpip.entity.layer3.IPv4Subnet;
+import org.mobiusone.networkmanager.core.entity.layer7.Domain;
 
 /**
  * Hello world!

@@ -1,11 +1,11 @@
-package org.mobiusone.networkmanager.entity;
+package org.mobiusone.networkmanager.core.entity;
 
-import org.mobiusone.networkmanager.entity.layer2.Connection;
-import org.mobiusone.networkmanager.entity.layer2.DataLinkAddr;
-import org.mobiusone.networkmanager.entity.layer2.NetworkInterface;
-import org.mobiusone.networkmanager.entity.layer3.NetworkAddr;
-import org.mobiusone.networkmanager.entity.layer3.Subnet;
-import org.mobiusone.networkmanager.entity.layer7.Domain;
+import org.mobiusone.networkmanager.core.entity.layer2.Connection;
+import org.mobiusone.networkmanager.core.entity.layer2.DataLinkAddr;
+import org.mobiusone.networkmanager.core.entity.layer2.NetworkInterface;
+import org.mobiusone.networkmanager.core.entity.layer3.NetworkAddr;
+import org.mobiusone.networkmanager.core.entity.layer3.Subnet;
+import org.mobiusone.networkmanager.core.entity.layer7.Domain;
 
 import java.util.*;
 import java.util.stream.Collectors;

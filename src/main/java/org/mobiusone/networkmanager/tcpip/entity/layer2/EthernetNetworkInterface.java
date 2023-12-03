@@ -1,17 +1,17 @@
-package org.mobiusone.networkmanager.entity.util.layer2;
+package org.mobiusone.networkmanager.tcpip.entity.layer2;
 
-import org.mobiusone.networkmanager.entity.layer2.Connection;
-import org.mobiusone.networkmanager.entity.layer2.ConnectionManager;
-import org.mobiusone.networkmanager.entity.layer2.NetworkInterface;
-import org.mobiusone.networkmanager.entity.layer3.IPv4Addr;
-import org.mobiusone.networkmanager.entity.layer3.IPv6Addr;
-import org.mobiusone.networkmanager.entity.layer3.NetworkAddr;
-import org.mobiusone.networkmanager.entity.layer3.Subnet;
+import org.mobiusone.networkmanager.core.entity.layer2.Connection;
+import org.mobiusone.networkmanager.core.entity.layer2.ConnectionManager;
+import org.mobiusone.networkmanager.tcpip.entity.layer3.IPv6Addr;
+import org.mobiusone.networkmanager.core.entity.layer2.NetworkInterface;
+import org.mobiusone.networkmanager.tcpip.entity.layer3.IPv4Addr;
+import org.mobiusone.networkmanager.core.entity.layer3.NetworkAddr;
+import org.mobiusone.networkmanager.core.entity.layer3.Subnet;
 
 public class EthernetNetworkInterface extends NetworkInterface<MacAddr> {
 
     public static ConnectionManager<MacAddr,IPv4Addr> iPv4ConnectionManager = new IPv4ConnectionManager();
-    public static ConnectionManager<MacAddr,IPv6Addr> iPv6ConnectionManager = new IPv6ConnectionManager();
+    public static ConnectionManager<MacAddr, IPv6Addr> iPv6ConnectionManager = new IPv6ConnectionManager();
 
     public EthernetNetworkInterface(String name, MacAddr addr) {
         super(name, addr);

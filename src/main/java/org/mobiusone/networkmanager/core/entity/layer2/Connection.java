@@ -1,7 +1,7 @@
-package org.mobiusone.networkmanager.entity.layer2;
+package org.mobiusone.networkmanager.core.entity.layer2;
 
-import org.mobiusone.networkmanager.entity.layer3.NetworkAddr;
-import org.mobiusone.networkmanager.entity.layer3.Subnet;
+import org.mobiusone.networkmanager.core.entity.layer3.NetworkAddr;
+import org.mobiusone.networkmanager.core.entity.layer3.Subnet;
 
 public abstract class Connection<D extends DataLinkAddr,N extends NetworkAddr>{
     private NetworkInterface<D> networkInterface;

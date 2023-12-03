@@ -1,15 +1,12 @@
-package org.mobiusone.networkmanager.entity.layer3;
+package org.mobiusone.networkmanager.core.entity.layer3;
 
-import org.mobiusone.networkmanager.entity.layer2.Connection;
-import org.mobiusone.networkmanager.entity.layer2.DataLinkAddr;
+import org.mobiusone.networkmanager.core.entity.layer2.Connection;
+import org.mobiusone.networkmanager.core.entity.layer2.DataLinkAddr;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Subnetを表すエンティティ。
- */
 public abstract class Subnet<N extends NetworkAddr> {
     private String name;
     private N addr;

@@ -1,7 +1,7 @@
-package org.mobiusone.networkmanager.entity.layer2;
+package org.mobiusone.networkmanager.core.entity.layer2;
 
-import org.mobiusone.networkmanager.entity.Host;
-import org.mobiusone.networkmanager.entity.layer3.*;
+import org.mobiusone.networkmanager.core.entity.Host;
+import org.mobiusone.networkmanager.core.entity.layer3.NetworkAddr;
 
 import java.util.ArrayList;
 import java.util.List;

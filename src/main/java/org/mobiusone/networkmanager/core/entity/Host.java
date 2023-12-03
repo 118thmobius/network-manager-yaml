@@ -1,6 +1,6 @@
-package org.mobiusone.networkmanager.entity;
+package org.mobiusone.networkmanager.core.entity;
 
-import org.mobiusone.networkmanager.entity.layer2.NetworkInterface;
+import org.mobiusone.networkmanager.core.entity.layer2.NetworkInterface;
 
 import java.util.ArrayList;
 import java.util.List;

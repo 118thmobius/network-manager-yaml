@@ -1,4 +1,6 @@
-package org.mobiusone.networkmanager.entity.layer3;
+package org.mobiusone.networkmanager.tcpip.entity.layer3;
+
+import org.mobiusone.networkmanager.core.entity.layer3.NetworkAddr;
 
 public class IPv6Addr implements NetworkAddr {
     private long network;

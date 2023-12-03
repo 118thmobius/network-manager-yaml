@@ -1,7 +1,7 @@
-package org.mobiusone.networkmanager.entity.layer7;
+package org.mobiusone.networkmanager.core.entity.layer7;
 
-import org.mobiusone.networkmanager.entity.annotation.Entity;
-import org.mobiusone.networkmanager.entity.layer3.IPv4Addr;
+import org.mobiusone.networkmanager.core.entity.annotation.Entity;
+import org.mobiusone.networkmanager.tcpip.entity.layer3.IPv4Addr;
 
 import java.util.List;
 
